@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/home_bg_gradient"
+    android:padding="16dp">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/habitsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="📋 My Daily Habits"
+        android:textSize="26sp"
+        android:textColor="#2E3A59"
+        android:fontFamily="sans-serif-medium"
+        android:letterSpacing="0.02"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp"/>
+
+    <!-- Progress Container -->
+    <LinearLayout
+        android:id="@+id/progressContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp"
+        android:background="@drawable/card_bg_gradient"
+        android:elevation="6dp"
+        android:layout_marginTop="12dp"
+        android:clipToPadding="false"
+        app:layout_constraintTop_toBottomOf="@id/habitsTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/progressLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your Progress"
+            android:textSize="16sp"
+            android:textColor="#1B4332"
+            android:fontFamily="sans-serif-medium"/>
+
+        <ProgressBar
+            android:id="@+id/habitProgress"
+            style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="16dp"
+            android:progressTint="#40916C"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/progressText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0% Completed"
+            android:textColor="#1B4332"
+            android:textSize="14sp"/>
+    </LinearLayout>
+
+    <!-- Add Habit Button -->
+    <Button
+        android:id="@+id/addHabitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="➕ Add Habit"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:background="@drawable/gradient_button_selector"
+        android:paddingVertical="12dp"
+        android:elevation="6dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@id/progressContainer"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Scrollable Habit List -->
+    <ScrollView
+        android:id="@+id/habitsScroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/addHabitButton"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp">
+
+        <LinearLayout
+            android:id="@+id/habitsList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="12dp"/>
+    </ScrollView>
+
+    <!-- Bottom Navigation -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/nav_bar_bg"
+        android:layout_margin="12dp"
+        app:itemIconTint="@color/nav_item_colors"
+        app:itemTextColor="@color/nav_item_colors"
+        app:itemRippleColor="@color/nav_ripple_color"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_nav_menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:elevation="10dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
